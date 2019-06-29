@@ -29,9 +29,21 @@ def time():
     now = datetime.datetime.now()
     return "The current time is" + now.strftime("%H:%M:%S")
 
+
+# Getting arguements from a GET form
 @app.route("/search")
 def do_search():
-    return "Search Page number 8"
+    make = request.args.get('make')
+    model = request.args.get('model')
+    return "You search for car make: {0}, and car model: {1}".format(make, model)
+
+
+# Getting arguements from a POST form
+@app.route("/search_post", methods = ['POST'])
+def do_post_search():
+    make1 = request.form.get('make1')
+    model1 = request.form.get('model1')
+    return "You search for car make: {0}, and car model: {1}".format(make1, model1)
 
 
 if __name__ == "__main__":  # if this file is being imported, do not run code below
