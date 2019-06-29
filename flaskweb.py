@@ -41,9 +41,9 @@ def do_search():
 # Getting arguements from a POST form
 @app.route("/search_post", methods = ['POST'])
 def do_post_search():
-    make1 = request.form.get('make1')
-    model1 = request.form.get('model1')
-    return "You search for car make: {0}, and car model: {1}".format(make1, model1)
+    make1 = request.form.get('make')
+    model = request.form.get('model')
+    return "You search for car make: {0}, and car model: {1}".format(make1, model)
 
 
 if __name__ == "__main__":  # if this file is being imported, do not run code below
